@@ -8,6 +8,8 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 	// コンソールへの文字出力
 	OutputDebugStringA("Hellow,DirectX!!\n");
 
+
+
 #pragma region 基盤システムの初期化
 	// ポインタ
 	WinApp* winApp = nullptr;
