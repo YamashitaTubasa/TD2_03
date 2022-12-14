@@ -1,6 +1,7 @@
 #include "Input/Input.h"
 #include "Platform/WinApp.h"
 #include "Platform/DirectXCommon.h"
+#include "3d/Object3d.h"
 
 // windowsアプリでのエントリーポイント(main関数)
 int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
@@ -14,6 +15,7 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 	Input* input = nullptr;
 	DirectXCommon* dXCommon = nullptr;
 	HRESULT result;
+	ID3D12GraphicsCommandList* cmdList = dXCommon->GetCommandList();
 
 	// WindowsAPIの初期化
 	winApp = new WinApp();
@@ -27,9 +29,17 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 	input = new Input();
 	input->Initialize(winApp);
 
+
 #pragma endregion 基盤システムの初期化
 
 #pragma region 最初のシーンの初期化
+
+	// 3Dオブジェクト
+	Object3d* object3d = nullptr;
+	object3d = new Object3d();
+	Object3d::StaticInitialize(dXCommon->GetDevice(), WinApp::window_width, WinApp::window_height);
+	object3d = Object3d::Create();
+	object3d->Update();
 	
 #pragma endregion 最初のシーンの初期化
 
@@ -45,6 +55,8 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 
 		input->Update();
 
+		object3d->Update();
+
 	#pragma endregion 基盤システムの更新
 
 	#pragma region 最初のシーンの更新
@@ -53,13 +65,17 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 
 		// 描画前処理
 		dXCommon->PreDraw();
+		Object3d::PreDraw(cmdList);
 
 	#pragma region 最初のシーンの描画
+
+		object3d->Draw();
 		
 	#pragma endregion 最初のシーンの描画
 
 		// 描画後処理
 		dXCommon->PostDraw();
+		Object3d::PostDraw();
 	}
 #pragma region 最初のシーンの終了
 

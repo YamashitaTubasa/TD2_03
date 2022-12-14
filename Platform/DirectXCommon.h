@@ -41,12 +41,7 @@ public: // メンバ関数
 	void PostDraw();
 
 private: // メンバ関数
-	// FPS固定初期化
-	void InitializeFixFPS();
-	// FPS固定更新
-	void UpdateFixFPS();
-	// 記録時間(FPS固定用)
-	std::chrono::steady_clock::time_point reference_;
+	
 
 public: // Getter
 	// デバイスの取得
@@ -60,7 +55,7 @@ private:
 	// Input
 	/*Input* input = nullptr;*/
 	// FPS
-	/*FPSFixed* fpsFixed = nullptr;*/
+	FPSFixed* fpsFixed = nullptr;
 
 	HRESULT result;
 	// DirectX12デバイス
