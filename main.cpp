@@ -8,6 +8,8 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 	// コンソールへの文字出力
 	OutputDebugStringA("Hellow,DirectX!!\n");
 
+
+
 #pragma region 基盤システムの初期化
 	// ポインタ
 	WinApp* winApp = nullptr;
@@ -18,8 +20,6 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 	// WindowsAPIの初期化
 	winApp = new WinApp();
 	winApp->Initialize();
-
-    // DirectX初期化処理　ここから
 
 	// DirectXの初期化
 	dXCommon = new DirectXCommon();
