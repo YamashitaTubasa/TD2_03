@@ -31,10 +31,11 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 
 #pragma endregion 基盤システムの初期化
 
-#pragma region 最初のシーンの初期化
+#pragma region ゲームシーンで使う変数の初期化
 	
-#pragma endregion 最初のシーンの初期化
+#pragma endregion ゲームシーンで使う変数の初期化
 
+	//-------ここからゲームループ--------//
 	while (true) {
 
 	#pragma region 基盤システムの更新
@@ -49,16 +50,16 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 
 	#pragma endregion 基盤システムの更新
 
-	#pragma region 最初のシーンの更新
+	#pragma region ゲームシーンの更新
 
-	#pragma endregion 最初のシーンの更新
+	#pragma endregion ゲームシーンの更新
 
 		// 描画前処理
 		dXCommon->PreDraw();
 
-	#pragma region 最初のシーンの描画
+	#pragma region  ゲームシーンの描画
 		
-	#pragma endregion 最初のシーンの描画
+	#pragma endregion  ゲームシーンの描画
 
 		// 描画後処理
 		dXCommon->PostDraw();
