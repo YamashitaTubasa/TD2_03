@@ -19,8 +19,6 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 	winApp = new WinApp();
 	winApp->Initialize();
 
-    // DirectX‰Šú‰»ˆ—@‚±‚±‚©‚ç
-
 	// DirectX‚Ì‰Šú‰»
 	dXCommon = new DirectXCommon();
 	dXCommon->Initialize(winApp);
